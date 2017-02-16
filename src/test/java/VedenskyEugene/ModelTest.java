@@ -25,10 +25,17 @@ public class ModelTest {
 
     }
     @Test
-    public void buildTimeIntoStringTest() throws  CustomException{
+    public void buildTimeIntoStringTest() throws InvalidTimeException {
         String[] testStringArray = model.splitTimeInputStringByColon("5:02");
         String actual = model.buildTimeIntoString(testStringArray);
-        String expected = "five twenty-five ";
+        String expected = "five o' two";
+        assertEquals(actual, expected);
+    }
+    @Test
+    public void buildTimeIntoStringMillitary() throws InvalidTimeException {
+        String[] testStringArray = model.splitTimeInputStringByColon("14:52");
+        String actual = model.buildTimeIntoStringMilitary(testStringArray);
+        String expected = "five o' two";
         assertEquals(actual, expected);
     }
 
